@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { getFeedback } from "@sentry/browser";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -29,6 +30,10 @@ export function ThemeProvider({
   enableSystem = true,
   storageKey = "theme",
 }: ThemeProviderProps) {
+  const feedbackWidgetRef = React.useRef<{ removeFromDom: () => void } | null>(
+    null,
+  );
+
   React.useEffect(() => {
     const stored = localStorage.getItem(storageKey) as
       | "light"
@@ -45,6 +50,24 @@ export function ThemeProvider({
       root.setAttribute(attribute, resolved);
     }
   }, [attribute, defaultTheme, enableSystem, storageKey]);
+
+  React.useEffect(() => {
+    if (feedbackWidgetRef.current) {
+      return;
+    }
+
+    const feedback = getFeedback();
+    if (!feedback?.createWidget) {
+      return;
+    }
+
+    feedbackWidgetRef.current = feedback.createWidget();
+
+    return () => {
+      feedbackWidgetRef.current?.removeFromDom();
+      feedbackWidgetRef.current = null;
+    };
+  }, []);
 
   return <>{children}</>;
 }
