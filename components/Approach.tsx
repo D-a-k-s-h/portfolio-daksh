@@ -13,9 +13,9 @@ const Approach = () => {
 
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4">
         <Card
-          title="Planning & Strategy"
+          title="Understanding Your Vision"
           icon={<AceternityIcon order="Phase 1" />}
-          description="We'll collaborate to map out your website's goals, target audience, and key functionalities. We'll discuss things like site structure, navigation, and content requirements."
+          description="I begin by understanding your goals, target audience, and project requirements. Together, we'll define the features, user experience, and technical approach needed to turn your idea into reality."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -23,9 +23,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Progress Update"
+          title="Building The Product"
           icon={<AceternityIcon order="Phase 2" />}
-          description="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+          description="With a clear plan in place, I start transforming ideas into working software. Using modern technologies like React, Next.js, Node.js, and MongoDB, I focus on creating fast, responsive, and user-friendly applications."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -38,9 +38,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Launch"
+          title="Launch & Continuous Improvement"
           icon={<AceternityIcon order="Phase 3" />}
-          description="Once we agree on the plan, I cue my lofi playlist and dive into coding. From initial sketches to polished code, I keep you updated every step of the way."
+          description="After thorough testing and optimization, I deploy the project and ensure everything runs smoothly. Even after launch, I'm available to help with improvements, new features, and ongoing maintenance."
         >
           <CanvasRevealEffect
             animationSpeed={3}
